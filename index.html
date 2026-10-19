@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://rosenails.co/assets/sede-poblado.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Rosé Nails","url":"https://rosenails.co/","image":"https://rosenails.co/assets/sede-poblado.jpg","logo":"https://rosenails.co/assets/rose-logo-gold.png","sameAs":["https://www.instagram.com/rosenailsnew/"],"priceRange":"$$","openingHours":"Mo-Sa 08:00-19:00","areaServed":"Valle de Aburrá, Antioquia, Colombia","department":[
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Rosé Nails","url":"https://rosenails.co/","image":"https://rosenails.co/assets/sede-poblado.jpg","logo":"https://rosenails.co/assets/rose-logo-gold.png","sameAs":["https://www.instagram.com/rosenailsnew/"],"openingHours":"Mo-Sa 08:00-19:00","areaServed":"Valle de Aburrá, Antioquia, Colombia","department":[
 {"@type":"NailSalon","name":"Rosé Nails Jardines","address":{"@type":"PostalAddress","streetAddress":"Calle 25B Sur #45-75","addressLocality":"Envigado","addressCountry":"CO"}},
 {"@type":"NailSalon","name":"Rosé Nails Laureles","address":{"@type":"PostalAddress","streetAddress":"Cra. 78 #35-78","addressLocality":"Medellín","addressCountry":"CO"}},
 {"@type":"NailSalon","name":"Rosé Nails Mesa","address":{"@type":"PostalAddress","streetAddress":"Cl. 37A Sur #34-13, Zona 9","addressLocality":"Envigado","addressCountry":"CO"}},
@@ -227,7 +227,7 @@
 </sc-if>
 <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
 <div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#fff;border:1px solid #EBDDDF"><span style="width:8px;height:8px;border-radius:4px;background:#C8A15D"></span><div style="flex:1"><div style="font:500 16px Montserrat,sans-serif">{{ c.n }}</div><div style="font-size:13px;color:#6E6964;margin-top:2px">{{ c.t }} · {{ c.p }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
+<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#fff;border:1px solid #EBDDDF"><span style="width:8px;height:8px;border-radius:4px;background:#C8A15D"></span><div style="flex:1"><div style="font:500 16px Montserrat,sans-serif">{{ c.n }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
 </div>
 </sc-if>
 <sc-if value="{{ noItems }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 20px;border-radius:20px;border:1.5px dashed #DDB5BD;font-size:14.5px;color:#6E6964">Aún no has elegido servicios. Agrégalos abajo.</div></sc-if>
@@ -248,7 +248,7 @@
 </div>
 <div style="font-size:14px;color:#6E6964;margin:6px 0 12px">{{ mCatDesc }}</div>
 <div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ mItems }}" as="it" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 20px;border-radius:20px;background:#fff"><div style="flex:1"><div style="font:500 15.5px Montserrat,sans-serif">{{ it.n }}</div><div style="font-size:13px;color:#6E6964;margin-top:2px">{{ it.t }} · {{ it.p }}</div></div><button onClick="{{ it.toggle }}" style="height:42px;min-width:118px;padding:0 16px;border-radius:21px;border:1.5px solid #8C5F69;background:{{ it.bg }};color:{{ it.fg }};font:500 13.5px Montserrat,sans-serif;cursor:pointer;transition:background .25s,color .25s">{{ it.label }}</button></div></sc-for>
+<sc-for list="{{ mItems }}" as="it" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 20px;border-radius:20px;background:#fff"><div style="flex:1"><div style="font:500 15.5px Montserrat,sans-serif">{{ it.n }}</div></div><button onClick="{{ it.toggle }}" style="height:42px;min-width:118px;padding:0 16px;border-radius:21px;border:1.5px solid #8C5F69;background:{{ it.bg }};color:{{ it.fg }};font:500 13.5px Montserrat,sans-serif;cursor:pointer;transition:background .25s,color .25s">{{ it.label }}</button></div></sc-for>
 </div>
 </sc-if>
 </div>

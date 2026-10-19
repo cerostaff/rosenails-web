@@ -13,7 +13,8 @@ Landing page de Rosé Nails (https://rosenails.co). Sitio estático, sin paso de
 ## Pendientes antes de publicar
 
 - Números de WhatsApp de cada sede: hoy son placeholders (`5730000000xx` en `rose-data.js`).
-- Precios (`price: 'desde [precio]'` en `rose-data.js`), reseñas de ejemplo y el promedio 4.6 "[confirmar]".
+- Reseñas de ejemplo (en `index.html`, arreglo `REV`) y el promedio 4.6, que ya no se muestra en móvil.
+- La página no muestra tiempos ni precios de los servicios (los datos siguen en `rose-data.js`, pero no se pintan).
 - Texto legal de cookies y tratamiento de datos.
 
 ## Desarrollo local
