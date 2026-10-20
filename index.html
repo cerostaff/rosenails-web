@@ -57,8 +57,8 @@
 <a href="https://www.instagram.com/rosenailsnew/" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:12px;padding:16px 0;font:500 17px Montserrat,sans-serif;color:#292827;text-decoration:none"><img src="assets/ig-app.png" alt="" style="width:30px;height:30px;object-fit:contain;border-radius:7px">@rosenailsnew</a>
 <button onClick="{{ menuBook }}" style="margin-top:6px;height:52px;border-radius:26px;border:0;cursor:pointer;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.18);color:#292827;font:600 16px Montserrat,sans-serif">Agendar cita</button>
 </div>
-<div style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: {{ hMidDir }}; flex-wrap: wrap; justify-content: space-between; align-items: {{ hMidAlign }}; gap: clamp(22px, 3vw, 48px); padding: {{ hMidPad }}">
-<div style="max-width:820px;min-width:0">
+<div style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: {{ hMidDir }}; flex-wrap: {{ hMidWrap }}; justify-content: space-between; align-items: {{ hMidAlign }}; gap: clamp(22px, 3vw, 48px); padding: {{ hMidPad }}">
+<div style="max-width:{{ h1BoxW }};min-width:0">
 <h1 style="font:400 {{ h1Fs }}/{{ h1Lh }} 'Bodoni Moda',serif;margin:{{ h1M }};max-width:{{ h1W }};letter-spacing:-.01em">¡Tus manos hablan por ti!... ¡Haz que digan algo hermoso!</h1>
 <p data-hero="" style="margin:0;font:300 {{ subFs }}/1.5 Montserrat,sans-serif;color:{{ subColor }};max-width:{{ subW }}">{{ heroSub }}</p>
 </div>
@@ -219,7 +219,7 @@
 </sc-if>
 <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
 <div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#fff;border:1px solid #EBDDDF"><span style="width:8px;height:8px;border-radius:4px;background:#C8A15D"></span><div style="flex:1"><div style="font:500 16px Montserrat,sans-serif">{{ c.n }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
+<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#fff;border:1px solid #EBDDDF"><span style="width:8px;height:8px;border-radius:4px;background:#C8A15D"></span><div style="flex:1"><div style="font:500 16px Montserrat,sans-serif">{{ c.n }}</div><div style="margin-top:2px;font:500 13.5px Montserrat,sans-serif;color:#6E5428">{{ c.p }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
 </div>
 </sc-if>
 <sc-if value="{{ noItems }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 20px;border-radius:20px;border:1.5px dashed #DDB5BD;font-size:14.5px;color:#6E6964">Aún no has elegido servicios. Agrégalos abajo.</div></sc-if>
@@ -227,7 +227,7 @@
 <div style="margin-top:22px;padding:24px;border-radius:24px;background:#F1E1E3">
 <div style="font:600 clamp(21px,2.4vw,26px)/1.15 'Bodoni Moda',serif;color:#292827">¿Ese servicio está bien o quieres agregar otro?</div>
 <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
-<a href="{{ wbHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:24px;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.22);color:#292827;text-decoration:none;font:600 14.5px Montserrat,sans-serif">Está bien, agendar</a>
+<a href="{{ waHrefCart }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:24px;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.22);color:#292827;text-decoration:none;font:600 14.5px Montserrat,sans-serif">Está bien, agendar</a>
 <button onClick="{{ startAdd }}" style="height:48px;padding:0 22px;border-radius:24px;border:1.5px solid #8C5F69;background:#fff;color:#8C5F69;font:500 14.5px Montserrat,sans-serif;cursor:pointer">Agregar otro servicio</button>
 <button onClick="{{ swapSvc }}" style="height:48px;padding:0 22px;border-radius:24px;border:1.5px solid #B98591;background:#fff;color:#292827;font:500 14.5px Montserrat,sans-serif;cursor:pointer">Cambiar por otro</button>
 </div>
@@ -240,21 +240,21 @@
 </div>
 <div style="font-size:14px;color:#6E6964;margin:6px 0 12px">{{ mCatDesc }}</div>
 <div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ mItems }}" as="it" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 20px;border-radius:20px;background:#fff"><div style="flex:1"><div style="font:500 15.5px Montserrat,sans-serif">{{ it.n }}</div></div><button onClick="{{ it.toggle }}" style="height:42px;min-width:118px;padding:0 16px;border-radius:21px;border:1.5px solid #8C5F69;background:{{ it.bg }};color:{{ it.fg }};font:500 13.5px Montserrat,sans-serif;cursor:pointer;transition:background .25s,color .25s">{{ it.label }}</button></div></sc-for>
+<sc-for list="{{ mItems }}" as="it" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 20px;border-radius:20px;background:#fff"><div style="flex:1"><div style="font:500 15.5px Montserrat,sans-serif">{{ it.n }}</div><div style="margin-top:2px;font:500 13.5px Montserrat,sans-serif;color:#6E5428">{{ it.p }}</div></div><button onClick="{{ it.toggle }}" style="height:42px;min-width:118px;padding:0 16px;border-radius:21px;border:1.5px solid #8C5F69;background:{{ it.bg }};color:{{ it.fg }};font:500 13.5px Montserrat,sans-serif;cursor:pointer;transition:background .25s,color .25s">{{ it.label }}</button></div></sc-for>
 </div>
 </sc-if>
 </div>
 <sc-if value="{{ showFooterCta }}" hint-placeholder-val="{{ false }}">
 <div style="flex:none;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 12px;padding:14px clamp(18px,3.5vw,36px);border-top:1px solid #EBDDDF;background:#fff">
 <span style="font-size:13.5px;color:#6E6964">{{ cartCount }}</span>
-<div style="display:flex;flex-wrap:wrap;gap:10px"><a href="{{ waHrefCart }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 20px 0 10px;border-radius:25px;border:1.5px solid #8C5F69;color:#8C5F69;text-decoration:none;font:500 14.5px Montserrat,sans-serif"><img src="assets/whatsapp.png" alt="" style="width:28px;height:28px;border-radius:8px">Contáctanos</a><a href="{{ wbHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:25px;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.22);color:#292827;text-decoration:none;font:600 14.5px Montserrat,sans-serif">Agendar cita</a></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><a href="{{ waHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 20px 0 10px;border-radius:25px;border:1.5px solid #8C5F69;color:#8C5F69;text-decoration:none;font:500 14.5px Montserrat,sans-serif"><img src="assets/whatsapp.png" alt="" style="width:28px;height:28px;border-radius:8px">Contáctanos</a><a href="{{ waHrefCart }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:50px;padding:0 26px;border-radius:25px;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.22);color:#292827;text-decoration:none;font:600 14.5px Montserrat,sans-serif">Agendar cita</a></div>
 </div>
 </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1080},&quot;heroFull&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Foto del hero a pantalla completa (sedes sin fondo)&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroTint&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:70,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Velo morado sobre la foto&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroTintColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#3d1a2b&quot;,&quot;#292827&quot;,&quot;#8C5F69&quot;,&quot;#C995A0&quot;],&quot;default&quot;:&quot;#3d1a2b&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Color del velo&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroLogo&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Dorado&quot;,&quot;Blanco&quot;,&quot;Texto dorado&quot;],&quot;default&quot;:&quot;Blanco&quot;,&quot;tsType&quot;:&quot;'Dorado' | 'Blanco' | 'Texto dorado'&quot;,&quot;label&quot;:&quot;Logo del hero&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;svcFrame&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Arco&quot;,&quot;Círculo&quot;,&quot;Redondeado&quot;],&quot;default&quot;:&quot;Arco&quot;,&quot;tsType&quot;:&quot;'Arco' | 'Círculo' | 'Redondeado'&quot;,&quot;label&quot;:&quot;Marco de fotos de servicios&quot;,&quot;section&quot;:&quot;Servicios&quot;},&quot;jardinesZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto Jardines&quot;},&quot;jardinesX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto Jardines&quot;},&quot;jardinesY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:27,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto Jardines&quot;},&quot;laurelesZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto Laureles&quot;},&quot;laurelesX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:48,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto Laureles&quot;},&quot;laurelesY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:26,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto Laureles&quot;},&quot;mesaZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto Mesa&quot;},&quot;mesaX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto Mesa&quot;},&quot;mesaY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:31,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto Mesa&quot;},&quot;pobladoZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto Poblado&quot;},&quot;pobladoX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:52,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto Poblado&quot;},&quot;pobladoY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:19,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto Poblado&quot;},&quot;sabanetaZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto Sabaneta&quot;},&quot;sabanetaX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto Sabaneta&quot;},&quot;sabanetaY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto Sabaneta&quot;},&quot;casaZoom&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:50,&quot;max&quot;:250,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Zoom&quot;,&quot;section&quot;:&quot;Foto A domicilio&quot;},&quot;casaX&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:50,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Horizontal&quot;,&quot;section&quot;:&quot;Foto A domicilio&quot;},&quot;casaY&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;default&quot;:40,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Vertical&quot;,&quot;section&quot;:&quot;Foto A domicilio&quot;},&quot;showFab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Botón flotante \&quot;Agendar cita\&quot;&quot;,&quot;section&quot;:&quot;General&quot;}}">
 class Component extends DCLogic {
-  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1440, sede: null, modal: false, items: [], fromCard: false, adding: false, mcat: 0, pickSede: false, rIdx: 0, cookie: true, policy: false, menu: false, mapOpen: false, revOpen: false };
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1440, sede: null, modal: false, items: [], fromCard: false, adding: false, catName: '', pickSede: false, rIdx: 0, cookie: true, policy: false, menu: false, mapOpen: false, revOpen: false };
   mapRef = React.createRef();
   hdrRef = React.createRef();
   IMG = {
@@ -268,10 +268,10 @@ class Component extends DCLogic {
   MOBX = { poblado: 100 };
   FRAME = { jardines:[100, 50, 14], laureles: [100, 50, 20], mesa: [150, 100, 0], poblado: [180, 100, 15], sabaneta: [100, 50, 50], casa: [100, 50, 40] };
   SVC = [
-    { title: 'Tradicional', n: 'Manicure tradicional', t: '45 min', d: 'Esmalte clásico con limpieza, forma y cuidado de cutícula.', img: 'assets/svc-poligel.jpg', ph: '' },
-    { title: 'Semipermanente', n: 'Manicure semipermanente', t: '60 min', d: 'Color con brillo que dura semanas sin desportillarse.', img: '', ph: 'Foto pendiente' },
-    { title: 'Acrílico', n: 'Uñas acrílicas', t: '2 h 30 min', d: 'Largo y forma a tu medida, con acabado natural o chrome.', img: 'assets/svc-acrilico.jpg', ph: '' },
-    { title: 'Poligel', n: 'Uñas en poligel', t: '2 h', d: 'Extensión ligera y resistente, con un acabado natural.', img: '', ph: 'Foto pendiente' }
+    { title: 'Tradicional', cat: 'Tradicional', d: 'Esmalte clásico con limpieza, forma y cuidado de cutícula.', img: 'assets/svc-tradicional.jpg', ph: '' },
+    { title: 'Semipermanente', cat: 'Semipermanente', d: 'Color con brillo que dura semanas sin desportillarse.', img: 'assets/svc-semipermanente.jpg', ph: '' },
+    { title: 'Acrílico', cat: 'Acrílico', d: 'Largo y forma a tu medida, con acabado natural o chrome.', img: 'assets/svc-acrilico.jpg', ph: '' },
+    { title: 'Polygel', cat: 'Polygel', d: 'Extensión ligera y resistente, con un acabado natural.', img: 'assets/svc-polygel.jpg', ph: '' }
   ];
   // Reseñas de EJEMPLO: reemplazar por reseñas reales (texto, nombre, calificación).
   REV = [
@@ -359,10 +359,10 @@ class Component extends DCLogic {
       else this.map.fitBounds(window.L.latLngBounds(Object.values(this.C)).pad(.15));
     }, 520);
   }
-  setSede(id) { window.RoseData.save(id); this.setState({ sede: id, pickSede: false, mcat: 0 }, () => { try { this.syncMap(); } catch (e) {} }); }
-  WB = { jardines: 'rose-nails-jardines-sede-1', laureles: 'rose-nails-laureles', mesa: 'rose-nails-mesa', poblado: 'rose-nails-poblado', sabaneta: 'rose-nails-sabaneta', casa: 'rose-en-casa' };
-  wb(s) { return 'https://rose-nails.weibook.site/branch/' + (this.WB[s && s.id] || ''); }
-  avail() { return this.state.sede === 'casa' ? [0, 1, 6] : [0, 1, 2, 3, 4, 5, 6, 7]; }
+  setSede(id) { window.RoseData.save(id); this.setState(s => ({ sede: id, pickSede: false, items: s.items.filter(n => window.RoseData.cats(id).some(c => c.items.some(it => it.n === n))) }), () => { try { this.syncMap(); } catch (e) {} }); }
+
+
+
   setCookie(v) { try { localStorage.setItem('roseNails.cookies', v); } catch (e) {} this.setState({ cookie: true }); }
   renderVals() {
     const R = window.RoseData; if (!R) return {};
@@ -370,8 +370,8 @@ class Component extends DCLogic {
     const nm = x => x.id === 'casa' ? 'A domicilio' : x.name;
     const onImg = this.props.heroFull ?? true;
     const gold = on => ({ bg: on ? 'linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%)' : 'transparent', fg: on ? '#292827' : (onImg ? '#E6D2A8' : '#6E5428'), bd: on ? 'transparent' : (onImg ? 'rgba(230,210,168,.85)' : '#C8A15D'), sh: on ? 'inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.22)' : 'none', ts: on || !onImg ? 'none' : '0 1px 10px rgba(0,0,0,.55)' });
-    const findSvc = n => { for (const c of R.categorias) for (const it of c.items) if (it.n === n) return it; return { n, t: '' }; };
-    const av = this.avail(), cat = R.categorias[av[Math.min(st.mcat, av.length - 1)]];
+    const cats = R.cats(st.sede), findSvc = n => { for (const c of cats) for (const it of c.items) if (it.n === n) return it; return { n, p: '' }; };
+    const cat = cats.find(c => c.n === st.catName) || cats[0];
     const svcMsg = st.items.length ? st.items.join(', ') : '';
     const toggle = n => this.setState(x => ({ items: x.items.includes(n) ? x.items.filter(i => i !== n) : x.items.concat(n) }));
     const n = this.REV.length;
@@ -394,7 +394,7 @@ class Component extends DCLogic {
       tStart: e => { this._tx = e.touches[0].clientX; }, tEnd: e => { const dx = e.changedTouches[0].clientX - (this._tx ?? 0); if (Math.abs(dx) > 40) this.setState(x => ({ rIdx: (x.rIdx + (dx < 0 ? 1 : -1) + n) % n })); }, sedeGap: mob ? '10px' : 'clamp(14px,1.6vw,22px)', colGap: mob ? '10px' : 'clamp(12px,1.4vw,18px)', secPadT: mob ? '28px' : 'clamp(64px,7vw,104px)',
       heroOverlay: mob ? 'linear-gradient(180deg,rgba(20,10,15,.74) 0%,rgba(20,10,15,.4) 16%,rgba(20,10,15,0) 32%,rgba(20,10,15,0) 56%,rgba(20,10,15,.86) 78%,rgba(20,10,15,.94) 100%)' : this.ovl(),
       hMidDir: mob ? 'column' : 'row', hMidAlign: mob ? 'flex-start' : 'flex-end', hMidPad: mob ? '14px clamp(20px,5vw,72px) 0' : 'clamp(40px, 6vw, 96px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(28px, 5vw, 72px)',
-      h1Fs: mob ? '27px' : 'clamp(34px, 5.2vw, 76px)', h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
+      h1Fs: mob ? '27px' : 'clamp(30px, 4.2vw, 60px)', hMidWrap: vw < 1100 ? 'wrap' : 'nowrap', h1BoxW: mob ? '100%' : (vw < 1100 ? '720px' : 'min(720px, 62%)'), h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
       subFs: mob ? '15px' : 'clamp(16px,1.5vw,20px)', subW: mob ? 'none' : '34ch', heroSub: 'Manicure y pedicure', subColor: mob ? '#FBEFF1' : '#EAC9CF', heroBtnsDisp: mob ? 'none' : 'flex',
       bandPad: mob ? '12px clamp(20px,5vw,72px) 14px' : 'clamp(16px, 2.2vw, 26px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(22px, 3vw, 40px)',
       bandLblFont: mob ? '500 14px Montserrat,sans-serif' : '600 12px Montserrat,sans-serif', bandLblLs: mob ? '0' : '.18em', bandLblTt: mob ? 'none' : 'uppercase', bandLblMb: mob ? '10px' : 'clamp(10px,1.2vw,14px)', bandLblTxt: mob ? 'Elige tu sede para agendar' : 'Elige tu sede',
@@ -431,8 +431,8 @@ class Component extends DCLogic {
       eyebrow: has ? (s.id === 'casa' ? 'A domicilio · zona Poblado' : 'Sede ' + s.name + ' · ' + s.zona) : 'Cinco sedes y servicio a domicilio',
       sedeName: has ? (s.id === 'casa' ? 'casa' : s.name) : '',
       sedeLabel: has ? (s.id === 'casa' ? 'A domicilio' : 'Rosé ' + s.name) : 'elige tu sede arriba',
-      wbHref: has ? this.wb(s) : '#', waHref: has ? R.link(s) : '#', waHrefCart: has ? R.link(s, svcMsg) : '#', waFooter: R.link(s || R.sedes[0]),
-      services4: this.SVC.map(x => ({ ...x, p: R.price, book: () => this.setState({ modal: true, items: [x.n], fromCard: true, adding: false, pickSede: false }) })),
+      waHref: has ? R.contact(s) : '#', waHrefCart: has ? R.link(s, svcMsg) : '#', waFooter: R.contact(s || R.sedes[0]),
+      services4: this.SVC.map(x => ({ ...x, book: () => this.setState({ modal: true, items: [], fromCard: false, adding: true, pickSede: false, catName: x.cat }) })),
       openCatalog: () => this.setState({ modal: true, fromCard: false, adding: true, pickSede: false }),
       openBookAny: () => this.setState({ modal: true, fromCard: false, adding: true, pickSede: false }),
       closeBook: () => this.setState({ modal: false }),
@@ -442,16 +442,16 @@ class Component extends DCLogic {
       showSedePick: !has || st.pickSede, hasSedeNoPick: has && !st.pickSede, showPick: () => this.setState({ pickSede: true }),
       mSedeBtns: R.all().map(x => ({ name: nm(x), pick: () => this.setSede(x.id), bg: x.id === st.sede ? 'linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%)' : '#fff', fg: x.id === st.sede ? '#292827' : '#6E5428' })),
       hasItems: has && !st.pickSede && st.items.length > 0, noItems: has && !st.pickSede && st.items.length === 0,
-      cart: st.items.map(i => ({ ...findSvc(i), p: R.price, remove: () => toggle(i) })),
+      cart: st.items.map(i => ({ ...findSvc(i), remove: () => toggle(i) })),
       showAsk: has && !st.pickSede && st.fromCard && !st.adding && st.items.length > 0,
       startAdd: () => this.setState({ adding: true }),
       swapSvc: () => this.setState({ items: [], adding: true }),
       showCatalog: has && !st.pickSede && (st.adding || !st.fromCard),
       showFooterCta: has && !st.pickSede && (st.adding || !st.fromCard),
       selShort: has ? nm(s) : '',
-      mTabs: av.map((ci, i) => { const on = i === Math.min(st.mcat, av.length - 1); return { n: R.categorias[ci].n, pick: () => this.setState({ mcat: i }), bg: on ? '#292827' : '#fff', fg: on ? '#fff' : '#292827', bd: on ? '#292827' : '#EBDDDF' }; }),
-      mCatDesc: cat.d,
-      mItems: cat.items.map(it => { const on = st.items.includes(it.n); return { ...it, p: R.price, toggle: () => toggle(it.n), label: on ? '✓ Agregado' : '+ Agregar', bg: on ? '#C995A0' : '#fff', fg: on ? '#292827' : '#8C5F69' }; }),
+      mTabs: cats.map(c => { const on = c === cat; return { n: c.n, pick: () => this.setState({ catName: c.n }), bg: on ? '#292827' : '#fff', fg: on ? '#fff' : '#292827', bd: on ? '#292827' : '#EBDDDF' }; }),
+      mCatDesc: cat.d || '',
+      mItems: cat.items.map(it => { const on = st.items.includes(it.n); return { ...it, toggle: () => toggle(it.n), label: on ? '✓ Agregado' : '+ Agregar', bg: on ? '#C995A0' : '#fff', fg: on ? '#292827' : '#8C5F69' }; }),
       cartCount: st.items.length === 1 ? '1 servicio seleccionado' : st.items.length + ' servicios seleccionados',
       mapRef: this.mapRef,
       mapChips: R.sedes.map(x => { const on = x.id === st.sede; return { name: x.name, sel: () => this.setSede(x.id), bg: on ? 'linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%)' : '#fff', fg: on ? '#292827' : '#6E5428' }; }),

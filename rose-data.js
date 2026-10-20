@@ -10,28 +10,737 @@ window.RoseData = {
     { id: 'sabaneta', name: 'Sabaneta', zona: 'Sabaneta', dir: 'Cra. 48 #73 Sur 18', wa: '573002214111' }
   ],
   casa: { id: 'casa', name: 'Rosé en Casa', zona: 'A domicilio · zona Poblado', dir: 'Vamos a tu casa', horario: 'Con cita previa', wa: '573045830353' },
-  categorias: [
-    { n: 'Tradicional', d: 'Esmalte clásico, limpieza y forma.', items: [{ n: 'Manicure tradicional', t: '45 min' }, { n: 'Pedicure tradicional', t: '60 min' }, { n: 'Mani + pedi clásico', t: '1 h 45 min' }] },
-    { n: 'Semipermanente', d: 'Brillo intacto por semanas.', items: [{ n: 'Manicure semipermanente', t: '60 min' }, { n: 'Pedicure semipermanente', t: '75 min' }, { n: 'Combo semipermanente + pedi clásico', t: '2 h' }] },
-    { n: 'Poligel', d: 'Extensión ligera y resistente.', items: [{ n: 'Uñas en poligel', t: '2 h' }, { n: 'Retoque de poligel', t: '1 h 30 min' }] },
-    { n: 'Acrílico', d: 'Largo y forma a tu medida.', items: [{ n: 'Uñas acrílicas', t: '2 h 30 min' }, { n: 'Retoque acrílico', t: '1 h 30 min' }] },
-    { n: 'Evolution', d: 'Nuestra línea de refuerzo.', items: [{ n: 'Evolution manos', t: '1 h 30 min' }, { n: 'Retoque Evolution', t: '1 h' }] },
-    { n: 'Extreme', d: 'Largos y diseños de impacto.', items: [{ n: 'Extreme largo', t: '3 h' }, { n: 'Retoque Extreme', t: '2 h' }] },
-    { n: 'Decoración', d: 'El detalle que lo cambia todo.', items: [{ n: 'Base rubber (adicional)', t: '15 min' }, { n: 'Nail art por uña', t: '10 min' }, { n: 'Francés', t: '20 min' }] },
-    { n: 'Familia', d: 'Para ir juntas.', items: [{ n: 'Manicure niñas', t: '30 min' }, { n: 'Mamá e hija', t: '1 h 30 min' }] }
-  ],
-  top: [
-    { n: 'Pedicure semipermanente', t: '75 min' },
-    { n: 'Mani + pedi clásico', t: '1 h 45 min' },
-    { n: 'Manicure semipermanente', t: '60 min' },
-    { n: 'Combo semipermanente + pedi clásico', t: '2 h' },
-    { n: 'Base rubber (adicional)', t: '15 min' }
-  ],
-  price: 'desde [precio]',
+  consulta: "Precio con la asesora",
+  // Tarifas 2026: general (Jardines, Laureles, Mesa, Sabaneta), Poblado y Rosé en Casa.
+  tarifas: {
+    "general": [
+      {
+        "n": "Tradicional",
+        "d": "Esmalte clásico, limpieza y forma.",
+        "items": [
+          {
+            "n": "Manicure clásico (tradicional)",
+            "p": "$27.000"
+          },
+          {
+            "n": "Pedicure clásico (tradicional)",
+            "p": "$32.000"
+          },
+          {
+            "n": "Manicure y pedicure clásicos (combo)",
+            "p": "$54.000"
+          },
+          {
+            "n": "Maquillaje clásico de manos (solo esmaltado)",
+            "p": "$21.000"
+          },
+          {
+            "n": "Maquillaje clásico de pies (solo esmaltado)",
+            "p": "$21.000"
+          },
+          {
+            "n": "Maquillaje clásico de manos y pies",
+            "p": "$37.000"
+          },
+          {
+            "n": "Asepsia de manos",
+            "p": "$25.000"
+          },
+          {
+            "n": "Asepsia de pies",
+            "p": "$25.000"
+          }
+        ]
+      },
+      {
+        "n": "Semipermanente",
+        "d": "Brillo intacto por semanas.",
+        "items": [
+          {
+            "n": "Manicure semipermanente",
+            "p": "$56.000"
+          },
+          {
+            "n": "Pedicure semipermanente",
+            "p": "$47.000"
+          },
+          {
+            "n": "Maquillaje semipermanente (solo esmaltado)",
+            "p": "$40.000"
+          },
+          {
+            "n": "Manicure semipermanente + pedicure clásico (combo)",
+            "p": "$76.000"
+          },
+          {
+            "n": "Manicure y pedicure semipermanente (combo)",
+            "p": "$94.000"
+          },
+          {
+            "n": "Base rubber",
+            "p": "$11.000"
+          },
+          {
+            "n": "Capa luxury o de brillo",
+            "p": "$15.000"
+          },
+          {
+            "n": "Retiro de semipermanente",
+            "p": "$7.000"
+          },
+          {
+            "n": "Foot shower",
+            "p": "$30.000"
+          }
+        ]
+      },
+      {
+        "n": "Polygel",
+        "d": "Extensión ligera y resistente.",
+        "items": [
+          {
+            "n": "Montaje de Polygel",
+            "p": "$114.000"
+          },
+          {
+            "n": "Forrado de Polygel",
+            "p": "$93.000"
+          },
+          {
+            "n": "Retoque de Polygel",
+            "p": "$82.000"
+          }
+        ]
+      },
+      {
+        "n": "Acrílico",
+        "d": "Largo y forma a tu medida.",
+        "items": [
+          {
+            "n": "Montaje acrílicas con molde, esmalte semipermanente",
+            "p": "$120.000"
+          },
+          {
+            "n": "Montaje acrílicas con molde, esmalte tradicional",
+            "p": "$90.000"
+          },
+          {
+            "n": "Montaje acrílicas con tips, esmalte tradicional",
+            "p": "$75.000"
+          },
+          {
+            "n": "Forrado de acrílico, esmalte semipermanente",
+            "p": "$98.000"
+          },
+          {
+            "n": "Forrado de acrílico, esmalte tradicional",
+            "p": "$65.000"
+          },
+          {
+            "n": "Retoque de acrílico, esmalte semipermanente",
+            "p": "$88.000"
+          },
+          {
+            "n": "Retoque de acrílico, esmalte tradicional",
+            "p": "$55.000"
+          },
+          {
+            "n": "Baño de acrílico",
+            "p": "$16.000"
+          },
+          {
+            "n": "Retiro de acrílico",
+            "p": "$16.000"
+          },
+          {
+            "n": "Extralargo talla L",
+            "p": "$10.000"
+          },
+          {
+            "n": "Extralargo talla XL",
+            "p": "$20.000"
+          },
+          {
+            "n": "Extralargo talla XXL",
+            "p": "$30.000"
+          },
+          {
+            "n": "Reconstrucción por fractura",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Soft gel / Press On",
+        "d": "",
+        "items": [
+          {
+            "n": "Press On (soft gel)",
+            "p": "$103.000"
+          },
+          {
+            "n": "Retoque de Press On",
+            "p": "$66.000"
+          }
+        ]
+      },
+      {
+        "n": "Extreme gel",
+        "d": "Largos y diseños de impacto.",
+        "items": [
+          {
+            "n": "Alargamiento en Extreme gel",
+            "p": "$85.000"
+          },
+          {
+            "n": "Forrado en Extreme gel",
+            "p": "$74.000"
+          }
+        ]
+      },
+      {
+        "n": "Evolution",
+        "d": "Nuestra línea de refuerzo.",
+        "items": [
+          {
+            "n": "Evolution",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Cánula / Builder gel",
+        "d": "",
+        "items": [
+          {
+            "n": "Cánula / builder gel",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Niñas",
+        "d": "Para las más pequeñas.",
+        "items": [
+          {
+            "n": "Servicios para niñas",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Decoración",
+        "d": "El detalle que lo cambia todo.",
+        "items": [
+          {
+            "n": "Decoración",
+            "p": "Precio con la asesora"
+          }
+        ]
+      }
+    ],
+    "poblado": [
+      {
+        "n": "Tradicional",
+        "d": "Esmalte clásico, limpieza y forma.",
+        "items": [
+          {
+            "n": "Manicure clásico (tradicional)",
+            "p": "$32.000"
+          },
+          {
+            "n": "Pedicure clásico (tradicional)",
+            "p": "$34.000"
+          },
+          {
+            "n": "Manicure y pedicure clásicos (combo)",
+            "p": "$59.000"
+          },
+          {
+            "n": "Maquillaje clásico de manos (solo esmaltado)",
+            "p": "$26.000"
+          },
+          {
+            "n": "Maquillaje clásico de pies (solo esmaltado)",
+            "p": "$26.000"
+          },
+          {
+            "n": "Maquillaje clásico de manos y pies",
+            "p": "$48.000"
+          },
+          {
+            "n": "Asepsia de manos",
+            "p": "$28.000"
+          },
+          {
+            "n": "Asepsia de pies",
+            "p": "$29.000"
+          }
+        ]
+      },
+      {
+        "n": "Semipermanente",
+        "d": "Brillo intacto por semanas.",
+        "items": [
+          {
+            "n": "Manicure semipermanente",
+            "p": "$61.000"
+          },
+          {
+            "n": "Pedicure semipermanente",
+            "p": "$53.000"
+          },
+          {
+            "n": "Maquillaje semipermanente (solo esmaltado)",
+            "p": "$44.000"
+          },
+          {
+            "n": "Manicure semipermanente + pedicure clásico (combo)",
+            "p": "$86.000"
+          },
+          {
+            "n": "Manicure y pedicure semipermanente (combo)",
+            "p": "$106.000"
+          },
+          {
+            "n": "Manicure rusa",
+            "p": "$33.000"
+          },
+          {
+            "n": "Base rubber",
+            "p": "$12.000"
+          },
+          {
+            "n": "Nivelación con base rubber",
+            "p": "$20.000"
+          },
+          {
+            "n": "Nivelación rubber con cánula",
+            "p": "$25.000"
+          },
+          {
+            "n": "Capa superbrillo",
+            "p": "$24.000"
+          },
+          {
+            "n": "Retiro de semipermanente",
+            "p": "$8.000"
+          },
+          {
+            "n": "Foot shower",
+            "p": "$33.000"
+          }
+        ]
+      },
+      {
+        "n": "Polygel",
+        "d": "Extensión ligera y resistente.",
+        "items": [
+          {
+            "n": "Montaje de Polygel",
+            "p": "$135.000"
+          },
+          {
+            "n": "Forrado de Polygel",
+            "p": "$105.000"
+          },
+          {
+            "n": "Retoque de Polygel",
+            "p": "$94.000"
+          }
+        ]
+      },
+      {
+        "n": "Acrílico",
+        "d": "Largo y forma a tu medida.",
+        "items": [
+          {
+            "n": "Montaje acrílicas con molde, esmalte semipermanente",
+            "p": "$140.000"
+          },
+          {
+            "n": "Montaje acrílicas con molde, esmalte tradicional",
+            "p": "$126.000"
+          },
+          {
+            "n": "Montaje acrílicas con tips, esmalte tradicional",
+            "p": "$105.000"
+          },
+          {
+            "n": "Forrado de acrílico, esmalte semipermanente",
+            "p": "$106.000"
+          },
+          {
+            "n": "Forrado de acrílico, esmalte tradicional",
+            "p": "$86.000"
+          },
+          {
+            "n": "Retoque de acrílico, esmalte semipermanente",
+            "p": "$97.000"
+          },
+          {
+            "n": "Retoque de acrílico, esmalte tradicional",
+            "p": "$68.000"
+          },
+          {
+            "n": "Baño de acrílico",
+            "p": "$27.000"
+          },
+          {
+            "n": "Limado de acrílico",
+            "p": "$10.000"
+          },
+          {
+            "n": "Reconstrucción por fractura (por uña)",
+            "p": "$3.000"
+          },
+          {
+            "n": "Retiro de acrílico",
+            "p": "$16.000"
+          },
+          {
+            "n": "Extralargo talla L",
+            "p": "$15.000"
+          },
+          {
+            "n": "Extralargo talla XL",
+            "p": "$22.000"
+          }
+        ]
+      },
+      {
+        "n": "Soft gel / Press On",
+        "d": "",
+        "items": [
+          {
+            "n": "Press On (soft gel)",
+            "p": "$123.000"
+          },
+          {
+            "n": "Retoque de Press On",
+            "p": "$74.000"
+          }
+        ]
+      },
+      {
+        "n": "Extreme gel",
+        "d": "Largos y diseños de impacto.",
+        "items": [
+          {
+            "n": "Forrado en Extreme gel",
+            "p": "$74.000"
+          }
+        ]
+      },
+      {
+        "n": "Evolution",
+        "d": "Nuestra línea de refuerzo.",
+        "items": [
+          {
+            "n": "Manicure Evolution",
+            "p": "$37.000"
+          },
+          {
+            "n": "Pedicure Evolution",
+            "p": "$39.000"
+          },
+          {
+            "n": "Manicure y pedicure Evolution (combo)",
+            "p": "$70.000"
+          }
+        ]
+      },
+      {
+        "n": "Cánula / Builder gel",
+        "d": "",
+        "items": [
+          {
+            "n": "Alargamiento con cánula + acrílico",
+            "p": "$150.000"
+          },
+          {
+            "n": "Forrado con cánula y/o builder gel",
+            "p": "$130.000"
+          },
+          {
+            "n": "Retoque de cánula y/o builder gel",
+            "p": "$105.000"
+          }
+        ]
+      },
+      {
+        "n": "Niñas",
+        "d": "Para las más pequeñas.",
+        "items": [
+          {
+            "n": "Servicios para niñas",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Decoración",
+        "d": "El detalle que lo cambia todo.",
+        "items": [
+          {
+            "n": "Decoración",
+            "p": "Precio con la asesora"
+          }
+        ]
+      }
+    ],
+    "casa": [
+      {
+        "n": "Tradicional",
+        "d": "Esmalte clásico, limpieza y forma.",
+        "items": [
+          {
+            "n": "Manos tradicionales",
+            "p": "$32.000"
+          },
+          {
+            "n": "Pies tradicionales",
+            "p": "$34.000"
+          },
+          {
+            "n": "Manos y pies tradicionales (combo)",
+            "p": "$57.000"
+          },
+          {
+            "n": "Maquillaje de manos (solo esmaltado)",
+            "p": "$24.000"
+          },
+          {
+            "n": "Maquillaje de pies (solo esmaltado)",
+            "p": "$24.000"
+          },
+          {
+            "n": "Maquillaje de manos y pies tradicional",
+            "p": "$44.000"
+          },
+          {
+            "n": "Limpieza de manos o pies",
+            "p": "$24.000"
+          },
+          {
+            "n": "Limpieza de manos y pies",
+            "p": "$42.000"
+          },
+          {
+            "n": "Foot shower",
+            "p": "$39.000"
+          }
+        ]
+      },
+      {
+        "n": "Semipermanente",
+        "d": "Brillo intacto por semanas.",
+        "items": [
+          {
+            "n": "Manos semipermanente",
+            "p": "$58.000"
+          },
+          {
+            "n": "Pies semipermanente",
+            "p": "$52.000"
+          },
+          {
+            "n": "Manos semipermanente y pies tradicionales (combo)",
+            "p": "$82.000"
+          },
+          {
+            "n": "Manos y pies semipermanente (combo)",
+            "p": "$96.000"
+          },
+          {
+            "n": "Maquillaje semipermanente (solo esmaltado)",
+            "p": "$40.000"
+          },
+          {
+            "n": "Base rubber",
+            "p": "$12.000"
+          },
+          {
+            "n": "Capa de super brillo",
+            "p": "$18.000"
+          },
+          {
+            "n": "Retiro de semipermanente",
+            "p": "$8.000"
+          }
+        ]
+      },
+      {
+        "n": "Polygel",
+        "d": "Extensión ligera y resistente.",
+        "items": [
+          {
+            "n": "Montaje de Polygel",
+            "p": "$127.000"
+          },
+          {
+            "n": "Forrado de Polygel",
+            "p": "$99.000"
+          },
+          {
+            "n": "Retoque de Polygel",
+            "p": "$89.000"
+          }
+        ]
+      },
+      {
+        "n": "Acrílico",
+        "d": "Largo y forma a tu medida.",
+        "items": [
+          {
+            "n": "Montaje de acrílicas",
+            "p": "$131.000"
+          },
+          {
+            "n": "Acrílico con tips + esmalte semipermanente",
+            "p": "$107.000"
+          },
+          {
+            "n": "Forrado o recubrimiento de acrílico",
+            "p": "$102.000"
+          },
+          {
+            "n": "Retoque de acrílico",
+            "p": "$91.000"
+          },
+          {
+            "n": "Baño de acrílico",
+            "p": "$18.000"
+          },
+          {
+            "n": "Remiendo de acrílico (por uña)",
+            "p": "$5.000"
+          },
+          {
+            "n": "Limado de uña",
+            "p": "$15.000"
+          },
+          {
+            "n": "Extensión de uñas",
+            "p": "$67.000"
+          },
+          {
+            "n": "Extralargo talla L",
+            "p": "$10.000"
+          },
+          {
+            "n": "Extralargo talla 5/6",
+            "p": "$20.000"
+          },
+          {
+            "n": "Retiro de acrílico (tarifa completa)",
+            "p": "$16.000"
+          },
+          {
+            "n": "Retiro de acrílico excepción Rosé",
+            "p": "$8.000"
+          }
+        ]
+      },
+      {
+        "n": "Soft gel / Press On",
+        "d": "",
+        "items": [
+          {
+            "n": "Press On (soft gel)",
+            "p": "$114.000"
+          },
+          {
+            "n": "Retoque de Press On",
+            "p": "$69.000"
+          }
+        ]
+      },
+      {
+        "n": "Extreme gel",
+        "d": "Largos y diseños de impacto.",
+        "items": [
+          {
+            "n": "Alargamiento en Extreme gel",
+            "p": "$82.000"
+          },
+          {
+            "n": "Forrado en Extreme gel",
+            "p": "$72.000"
+          }
+        ]
+      },
+      {
+        "n": "Evolution",
+        "d": "Nuestra línea de refuerzo.",
+        "items": [
+          {
+            "n": "Manos Evolution",
+            "p": "$36.000"
+          },
+          {
+            "n": "Pies Evolution",
+            "p": "$36.000"
+          },
+          {
+            "n": "Manos y pies Evolution (combo)",
+            "p": "$72.000"
+          }
+        ]
+      },
+      {
+        "n": "Niñas",
+        "d": "Para las más pequeñas.",
+        "items": [
+          {
+            "n": "Manos niña menor de 7 años",
+            "p": "$24.000"
+          },
+          {
+            "n": "Pies niña menor de 7 años",
+            "p": "$24.000"
+          },
+          {
+            "n": "Maquillaje niña menor de 7 años",
+            "p": "$15.000"
+          }
+        ]
+      },
+      {
+        "n": "Decoración",
+        "d": "El detalle que lo cambia todo.",
+        "items": [
+          {
+            "n": "Decoración",
+            "p": "Precio con la asesora"
+          }
+        ]
+      },
+      {
+        "n": "Otros",
+        "d": "",
+        "items": [
+          {
+            "n": "Kit de uñas personal",
+            "p": "$45.000"
+          },
+          {
+            "n": "Veloterapia",
+            "p": "$18.000"
+          }
+        ]
+      }
+    ]
+  },
+  cats(id) { return this.tarifas[id === 'poblado' ? 'poblado' : id === 'casa' ? 'casa' : 'general']; },
   all() { return this.sedes.map(s => ({ horario: this.horario, ...s })).concat([this.casa]); },
   find(id) { return this.all().find(s => s.id === id) || null; },
   link(s, svc) {
-    const msg = 'Hola, quiero agendar una cita en Rosé Nails ' + s.name + (svc ? ' para ' + svc : '');
+    const msg = 'Hola, quiero agendar una cita ' + (s.id === 'casa' ? 'a domicilio' : 'en ' + s.name) + (svc ? ' para: ' + svc : '');
+    return 'https://wa.me/' + s.wa + '?text=' + encodeURIComponent(msg);
+  },
+  contact(s) {
+    const msg = s.id === 'casa' ? 'Hola, quiero información sobre el servicio a domicilio' : 'Hola, quiero información sobre la sede ' + s.name;
     return 'https://wa.me/' + s.wa + '?text=' + encodeURIComponent(msg);
   },
   maps(s) { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Rosé Nails ' + s.dir + ', Medellín'); },
