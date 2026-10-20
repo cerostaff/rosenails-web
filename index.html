@@ -24,18 +24,25 @@
 {"@type":"NailSalon","name":"Rosé Nails Poblado","address":{"@type":"PostalAddress","streetAddress":"Cra. 29D #6A-05, local 107, Mall Piazza Bella","addressLocality":"Medellín","addressCountry":"CO"}},
 {"@type":"NailSalon","name":"Rosé Nails Sabaneta","address":{"@type":"PostalAddress","streetAddress":"Cra. 48 #73 Sur 18","addressLocality":"Sabaneta","addressCountry":"CO"}}]}
 </script>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="rose-data.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="rose-data.js"></script>
 <style>*{box-sizing:border-box;font-optical-sizing:none}html{scroll-behavior:smooth}body{margin:0;background:#F7F4F1;color:#292827;font-family:Montserrat,sans-serif;-webkit-font-smoothing:antialiased}a{color:#6E5428}a:hover{color:#292827}.leaflet-tile-pane{filter:grayscale(.55) brightness(1.05)}.leaflet-container{font-family:Montserrat,sans-serif;background:#F1E1E3}@keyframes sheen{0%{background-position:-160% 0}60%,100%{background-position:260% 0}}@keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3.2);opacity:0}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}</style>
 </helmet>
 <sc-if value="{{ showFab }}" hint-placeholder-val="{{ false }}"><button data-fab="" onClick="{{ openBookAny }}" style="position:fixed;right:clamp(14px,2vw,24px);bottom:clamp(14px,2vw,24px);z-index:800;height:56px;padding:0 28px;border-radius:28px;border:0;background:#C995A0;color:#292827;font:500 15px Montserrat,sans-serif;letter-spacing:.02em;cursor:pointer;box-shadow:0 12px 32px rgba(201,149,160,.38);transition:background .25s" style-hover="background:#B98591">Agendar cita</button></sc-if>
@@ -57,7 +64,7 @@
 <a href="https://www.instagram.com/rosenailsnew/" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:12px;padding:16px 0;font:500 17px Montserrat,sans-serif;color:#292827;text-decoration:none"><img src="assets/ig-app.png" alt="" style="width:30px;height:30px;object-fit:contain;border-radius:7px">@rosenailsnew</a>
 <button onClick="{{ menuBook }}" style="margin-top:6px;height:52px;border-radius:26px;border:0;cursor:pointer;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.18);color:#292827;font:600 16px Montserrat,sans-serif">Agendar cita</button>
 </div>
-<div style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: {{ hMidDir }}; flex-wrap: {{ hMidWrap }}; justify-content: space-between; align-items: {{ hMidAlign }}; gap: clamp(22px, 3vw, 48px); padding: {{ hMidPad }}">
+<div style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: {{ hMidDir }}; flex-wrap: {{ hMidWrap }}; justify-content: {{ hMidJust }}; align-items: {{ hMidAlign }}; gap: clamp(22px, 3vw, 48px); padding: {{ hMidPad }}">
 <div style="flex:{{ h1Flex }};max-width:{{ h1BoxW }};min-width:0">
 <h1 style="font:400 {{ h1Fs }}/{{ h1Lh }} 'Bodoni Moda',serif;margin:{{ h1M }};max-width:{{ h1W }};letter-spacing:-.01em">¡Tus manos hablan por ti!...<span style="display:block;margin-top:.3em;font-size:{{ h1SubFs }};line-height:1.15;letter-spacing:0">¡Haz que digan algo hermoso!</span></h1>
 <p data-hero="" style="margin:0;font:300 {{ subFs }}/1.5 Montserrat,sans-serif;color:{{ subColor }};max-width:{{ subW }}">{{ heroSub }}</p>
@@ -75,7 +82,7 @@
 </div>
 <div style="position: relative; z-index: 2; background: {{ bandBg }}; padding: {{ bandPad }}">
 <div data-hero="" style="font:{{ bandLblFont }};letter-spacing:{{ bandLblLs }};text-transform:{{ bandLblTt }};color:{{ bandLabel }};margin-bottom:{{ bandLblMb }}">{{ bandLblTxt }}</div>
-<div data-stagger="" style="display:grid;grid-template-columns:{{ bandCols }};gap:{{ bandGap }}">
+<div style="display:grid;grid-template-columns:{{ bandCols }};gap:{{ bandGap }}">
 <sc-for list="{{ sedeBtns }}" as="b" hint-placeholder-count="7">
 <button onClick="{{ b.pick }}" style="height:{{ bandBtnH }};padding:{{ bandBtnPad }};white-space:nowrap;border-radius:29px;border:1px solid {{ b.bd }};background:{{ b.bg }};color:{{ b.fg }};font:600 clamp(13px,1.1vw,15px) Montserrat,sans-serif;letter-spacing:.02em;cursor:pointer;box-shadow:{{ b.sh }};text-shadow:{{ b.ts }};transition:box-shadow .35s,transform .3s cubic-bezier(.2,.9,.25,1.4)" style-hover="transform:translateY(-3px)" style-active="transform:scale(.96)">{{ b.name }}</button>
 </sc-for>
@@ -144,7 +151,7 @@
 <a data-magnet="" href="{{ waHref }}" target="_blank" rel="noopener" style="flex:{{ ctaFlex }};width:{{ ctaW }};min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:{{ waGap }};height:{{ ctaH }};padding:{{ waPad }};border-radius:29px;border:{{ waBd }};background:{{ waBg }};color:#fff;text-decoration:none;font:500 {{ ctaFs }} Montserrat,sans-serif;text-shadow:0 1px 8px rgba(0,0,0,.35);transition:background .25s" style-hover="background:rgba(255,255,255,.12);color:#fff"><img src="assets/whatsapp.png" alt="" style="width:32px;height:32px;border-radius:9px">Contáctanos</a>
 <button data-magnet="" onClick="{{ openBookAny }}" style="flex:{{ ctaFlex }};width:{{ ctaW }};min-width:0;position:relative;overflow:hidden;display:{{ bookDisp }};align-items:center;justify-content:center;height:{{ ctaH }};padding:{{ bookPad }};border-radius:29px;border:0;cursor:pointer;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 10px 26px rgba(0,0,0,.25);color:#292827;font:600 {{ ctaFs }} Montserrat,sans-serif" style-hover="background:linear-gradient(180deg,#EEDDB8 0%,#D2AE6E 50%,#C29C5C 52%,#E0C796 100%);color:#292827"><span style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%) no-repeat;background-size:60% 100%;animation:sheen 3.6s ease-in-out infinite;pointer-events:none"></span><span style="position:relative">Agendar cita</span></button>
 </div>
-<sc-if value="{{ isMob }}" hint-placeholder-val="{{ false }}"><button data-reveal="" onClick="{{ openRev }}" aria-label="Leer reseñas" style="order:{{ ordRev }};display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:56px;padding:0 20px;border-radius:20px;border:0;background:rgba(41,40,39,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;box-shadow:0 18px 44px rgba(20,10,15,.3)"><span style="display:flex;gap:3px"><sc-for list="{{ avgStars }}" as="st" hint-placeholder-count="5"><span style="position:relative;display:inline-block;font-size:20px;line-height:1;color:rgba(200,161,93,.25)">★<span style="position:absolute;left:0;top:0;width:{{ st.w }};overflow:hidden;color:#C8A15D">★</span></span></sc-for></span><span style="font:500 14px Montserrat,sans-serif;color:#E6D2A8">Leer reseñas →</span></button></sc-if>
+<sc-if value="{{ isMob }}" hint-placeholder-val="{{ false }}"><button data-reveal="" onClick="{{ openRev }}" aria-label="Leer reseñas" style="order:{{ ordRev }};display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:56px;padding:0 20px;border-radius:20px;border:0;background:rgba(41,40,39,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;box-shadow:0 18px 44px rgba(20,10,15,.3)"><span style="display:flex;align-items:center;gap:10px"><span style="font:400 26px/1 Bodoni Moda,serif;color:#C8A15D">4.6</span><span style="display:flex;gap:3px"><sc-for list="{{ avgStars }}" as="st" hint-placeholder-count="5"><span style="position:relative;display:inline-block;font-size:20px;line-height:1;color:rgba(200,161,93,.25)">★<span style="position:absolute;left:0;top:0;width:{{ st.w }};overflow:hidden;color:#C8A15D">★</span></span></sc-for></span></span><span style="font:500 14px Montserrat,sans-serif;color:#E6D2A8">Leer reseñas →</span></button></sc-if>
 <div data-reveal="" style="order:{{ ordRev }};position:relative;height:{{ revCardH }};padding:{{ revPad }};background:rgba(41,40,39,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(8px);color:#fff;display:{{ revDeskDisp }};flex-direction:column;border-radius:clamp(18px,2vw,26px);overflow:hidden;box-shadow:0 24px 60px rgba(20,10,15,.35)">
 <div style="display:flex;flex-wrap:{{ revHdrWrap }};justify-content:space-between;align-items:baseline;gap:8px 12px">
 <div style="font:500 {{ revLblFs }} Montserrat,sans-serif;letter-spacing:{{ revLblLs }};text-transform:uppercase;white-space:nowrap;color:#C8A15D">Lo que dicen de Rosé</div>
@@ -393,8 +400,8 @@ class Component extends DCLogic {
       colDisp: mob ? 'contents' : 'flex', ordCta: mob ? 1 : 0, ordCard: mob ? 2 : 0, ordRev: mob ? 3 : 0, ctaDir: mob ? 'column-reverse' : 'row', ctaW: mob ? '100%' : 'auto', waBg: mob ? 'rgba(41,40,39,.6)' : 'transparent',
       tStart: e => { this._tx = e.touches[0].clientX; }, tEnd: e => { const dx = e.changedTouches[0].clientX - (this._tx ?? 0); if (Math.abs(dx) > 40) this.setState(x => ({ rIdx: (x.rIdx + (dx < 0 ? 1 : -1) + n) % n })); }, sedeGap: mob ? '10px' : 'clamp(14px,1.6vw,22px)', colGap: mob ? '10px' : 'clamp(12px,1.4vw,18px)', secPadT: mob ? '28px' : 'clamp(64px,7vw,104px)',
       heroOverlay: mob ? 'linear-gradient(180deg,rgba(20,10,15,.74) 0%,rgba(20,10,15,.4) 16%,rgba(20,10,15,0) 32%,rgba(20,10,15,0) 56%,rgba(20,10,15,.86) 78%,rgba(20,10,15,.94) 100%)' : this.ovl(),
-      hMidDir: mob ? 'column' : 'row', hMidAlign: mob ? 'flex-start' : 'flex-end', hMidPad: mob ? '14px clamp(20px,5vw,72px) 0' : 'clamp(40px, 6vw, 96px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(28px, 5vw, 72px)',
-      h1Fs: mob ? '25px' : 'clamp(34px, 4.6vw, 66px)', h1SubFs: mob ? '.66em' : '.5em', h1Flex: mob || vw < 1100 ? '0 0 auto' : '1 1 0', hMidWrap: vw < 1100 ? 'wrap' : 'nowrap', h1BoxW: mob ? '100%' : (vw < 1100 ? '720px' : 'none'), h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
+      hMidDir: mob ? 'column' : 'row', hMidJust: mob ? 'flex-end' : 'space-between', hMidAlign: mob ? 'flex-start' : 'flex-end', hMidPad: mob ? '14px clamp(20px,5vw,72px) 18px' : 'clamp(40px, 6vw, 96px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(6px, .8vw, 12px)',
+      h1Fs: mob ? '36px' : 'clamp(42px, 5.75vw, 82px)', h1SubFs: mob ? '.62em' : '.5em', h1Flex: mob || vw < 1100 ? '0 0 auto' : '1 1 0', hMidWrap: vw < 1100 ? 'wrap' : 'nowrap', h1BoxW: mob ? '100%' : (vw < 1100 ? '720px' : 'none'), h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
       subFs: mob ? '15px' : 'clamp(16px,1.5vw,20px)', subW: mob ? 'none' : '34ch', heroSub: 'Manicure y pedicure', subColor: mob ? '#FBEFF1' : '#EAC9CF', heroBtnsDisp: mob ? 'none' : 'flex',
       bandPad: mob ? '12px clamp(20px,5vw,72px) 14px' : 'clamp(16px, 2.2vw, 26px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(22px, 3vw, 40px)',
       bandLblFont: mob ? '500 14px Montserrat,sans-serif' : '600 12px Montserrat,sans-serif', bandLblLs: mob ? '0' : '.18em', bandLblTt: mob ? 'none' : 'uppercase', bandLblMb: mob ? '10px' : 'clamp(10px,1.2vw,14px)', bandLblTxt: mob ? 'Elige tu sede para agendar' : 'Elige tu sede',
