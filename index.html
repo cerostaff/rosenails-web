@@ -280,14 +280,33 @@ class Component extends DCLogic {
     { title: 'Acrílico', cat: 'Acrílico', d: 'Largo y forma a tu medida, con acabado natural o chrome.', img: 'assets/svc-acrilico.jpg', ph: '' },
     { title: 'Polygel', cat: 'Polygel', d: 'Extensión ligera y resistente, con un acabado natural.', img: 'assets/svc-polygel.jpg', ph: '' }
   ];
-  // Reseñas de EJEMPLO: reemplazar por reseñas reales (texto, nombre, calificación).
+  // Reseñas reales de Google de cada sede (extractos).
   REV = [
-    { t: 'Me encantó la atención. El semipermanente me duró casi cuatro semanas.', n: 'Valentina R.', r: 5 },
-    { t: 'El lugar es hermoso y el trabajo muy limpio. Esperé unos minutos, pero valió la pena.', n: 'Carolina M.', r: 4 },
-    { t: 'Son muy detallistas con el francés. Ya es mi lugar fijo.', n: 'Daniela G.', r: 5 },
-    { t: 'Buena higiene y productos de calidad. Vuelvo por el acrílico.', n: 'Laura P.', r: 4.5 },
-    { t: 'Agendé y me atendieron puntual. La manicurista fue súper amable.', n: 'Mariana S.', r: 5 },
-    { t: 'Lindo nail art. El precio es algo alto, pero se nota la calidad.', n: 'Sara T.', r: 4 }
+    { t: "Me encanta el lugar es hermoso, Danna trabaja excelente y su carisma son ganadores, la atención de todo el personal 10000/10", n: "Andrea Valencia · Laureles", r: 5 },
+    { t: "Me encanta todo, el servicio es impecable, las chicas son muy…", n: "Sharon Matos · Poblado", r: 5 },
+    { t: "Espectacular la sede!!! Hace más de un año que me cambié por malas experiencias en otros sitios y ya no los cambio por nada…", n: "Sandra Londoño · Mesa", r: 5 },
+    { t: "Mi lugar de confianza sin duda alguna! Llevo tiempo viniendo a Rose Nails Jardines y lo que más me gusta es el servicio al cliente…", n: "Carolina Salazar · Jardines", r: 5 },
+    { t: "El trabajo es precioso. La mayoría de las niñas trabajan muy lindo, son pulidas y se nota la experiencia…", n: "Marcelina Guzmán · Sabaneta", r: 5 },
+    { t: "Me encanta el vino y la atención. Llevo más de 5 años acá y no los cambio, los amo. Súper recomendado", n: "Juliana Soto · Laureles", r: 5 },
+    { t: "Me gustó mucho la experiencia en Rosé porque allí puedo encontrar todo en un solo lugar: uñas, cejas, pestañas…", n: "Alison Madrid · Poblado", r: 5 },
+    { t: "Mi experiencia en Rosé Nails ha sido simplemente increíble. Desde el momento en que llegas, la atención es cálida, amable y muy…", n: "Laura Alzate · Mesa", r: 5 },
+    { t: "Excelente servicio, me encantan como cuidan mis manos y dejan hermosas mis uñas, recomendadísimos…", n: "Luisa Fernanda Garzón · Jardines", r: 5 },
+    { t: "Excelente servicio. El lugar es hermoso, muy limpio y con un ambiente súper agradable…", n: "Barbara Gómez · Sabaneta", r: 5 },
+    { t: "Me encanta venir a Rose Nails Laureles. Danna es muy amable, profesional y súper dedicada a su trabajo…", n: "Alejandra Quijano · Laureles", r: 5 },
+    { t: "Excelente lugar. Localización, profesionales, atención, citas disponibles y parqueadero siempre…", n: "Johanna García Rondón · Poblado", r: 5 },
+    { t: "Excelente servicio de atención por parte de todas las niñas. Adriana siempre deja mis uñas perfectas…", n: "Sofía Cardona · Mesa", r: 5 },
+    { t: "Me encanta venir a Rosé, la experiencia que tengo siempre es satisfactoria por las chicas, por los productos, por el lugar…", n: "Natali Olano · Jardines", r: 5 },
+    { t: "Excelente servicio, las profesionales son muy tesas, hacen unos diseños muy bonitos…", n: "Diana Isaza · Sabaneta", r: 5 },
+    { t: "Encuentro un lugar muy cómodo, con personal amigable y una calidad de servicio muy alta…", n: "Camila Vega · Laureles", r: 5 },
+    { t: "Siempre me hago semi manos y pies con Karina y amo ✨ es súper pulida y no la cambio…", n: "Valentina Velásquez · Poblado", r: 5 },
+    { t: "Me encanta Rosé! Como marca se siente el amor en su trabajo. Como profesionales excelente atención al cliente desde la reserva…", n: "Anyeli Cardona · Mesa", r: 5 },
+    { t: "La verdad desde que los conocí me ha encantado la experiencia, desde las chicas de recepción hasta las manicuristas…", n: "Wendy Gil Montiel · Jardines", r: 5 },
+    { t: "El servicio de uñitas en Rose siempre es una experiencia mágica…", n: "Andrea Corredor · Sabaneta", r: 5 },
+    { t: "Excelente servicio. Hacen un trabajo muy bonito y detallado con las uñas. Además son muy amables y siempre cumplen con los horarios. ¡Muy recomendado!", n: "Isabela Cardona · Laureles", r: 5 },
+    { t: "Hace 5 años vengo a Rosé, a la sede Piazza Bella, ¡y es la mejorrrr! Me consienten demasiado…", n: "Elizabeth Vanegas · Poblado", r: 5 },
+    { t: "Para comenzar el lugar es muy espacioso, agradable y muy limpio. Las chicas son súper amables y profesionales…", n: "Diana Meybohm · Mesa", r: 5 },
+    { t: "El servicio fue súper rápido, el lugar es muy lindo, aseado y cómodo. La atención de todo el personal es excelente.", n: "Juliana De Los Ríos Cardona · Jardines", r: 5 },
+    { t: "Ya van más de 5 años asistiendo a este lugar. Nunca he recibido un servicio más limpio, excelente, y profesional como acá!", n: "Sara Benavides Posada · Sabaneta", r: 5 }
   ];
   C = { jardines: [6.1758, -75.5868], laureles: [6.2446, -75.5966], mesa: [6.1668, -75.5778], poblado: [6.2061, -75.5590], sabaneta: [6.1512, -75.6162] };
   componentDidMount() {
