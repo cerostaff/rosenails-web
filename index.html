@@ -58,11 +58,11 @@
 <button onClick="{{ menuBook }}" style="margin-top:6px;height:52px;border-radius:26px;border:0;cursor:pointer;background:linear-gradient(180deg,#E6D2A8 0%,#C8A15D 50%,#B8914F 52%,#D8BD88 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -1px 0 rgba(120,85,30,.35),0 8px 22px rgba(0,0,0,.18);color:#292827;font:600 16px Montserrat,sans-serif">Agendar cita</button>
 </div>
 <div style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: {{ hMidDir }}; flex-wrap: {{ hMidWrap }}; justify-content: space-between; align-items: {{ hMidAlign }}; gap: clamp(22px, 3vw, 48px); padding: {{ hMidPad }}">
-<div style="max-width:{{ h1BoxW }};min-width:0">
-<h1 style="font:400 {{ h1Fs }}/{{ h1Lh }} 'Bodoni Moda',serif;margin:{{ h1M }};max-width:{{ h1W }};letter-spacing:-.01em">¡Tus manos hablan por ti!... ¡Haz que digan algo hermoso!</h1>
+<div style="flex:{{ h1Flex }};max-width:{{ h1BoxW }};min-width:0">
+<h1 style="font:400 {{ h1Fs }}/{{ h1Lh }} 'Bodoni Moda',serif;margin:{{ h1M }};max-width:{{ h1W }};letter-spacing:-.01em">¡Tus manos hablan por ti!...<span style="display:block;margin-top:.3em;font-size:{{ h1SubFs }};line-height:1.15;letter-spacing:0">¡Haz que digan algo hermoso!</span></h1>
 <p data-hero="" style="margin:0;font:300 {{ subFs }}/1.5 Montserrat,sans-serif;color:{{ subColor }};max-width:{{ subW }}">{{ heroSub }}</p>
 </div>
-<div data-hero="" style="display:{{ heroBtnsDisp }};flex-wrap:wrap;gap:12px">
+<div data-hero="" style="display:{{ heroBtnsDisp }};flex:none;flex-wrap:nowrap;white-space:nowrap;gap:12px">
 <sc-if value="{{ hasSede }}" hint-placeholder-val="{{ false }}">
 <a data-magnet="" href="{{ waHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;height:clamp(52px,4.2vw,60px);padding:0 22px 0 12px;border-radius:30px;border:0;color:#fff;text-decoration:none;font:500 clamp(18.75px,1.5vw,20px) Montserrat,sans-serif;transition:background .25s" style-hover="background:rgba(255,255,255,.12);color:#fff"><img src="assets/whatsapp.png" alt="" style="width:32px;height:32px;border-radius:9px">Contáctanos</a>
 
@@ -219,7 +219,7 @@
 </sc-if>
 <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ false }}">
 <div style="display:flex;flex-direction:column;gap:8px">
-<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#fff;border:1px solid #EBDDDF"><span style="width:8px;height:8px;border-radius:4px;background:#C8A15D"></span><div style="flex:1"><div style="font:500 16px Montserrat,sans-serif">{{ c.n }}</div><div style="margin-top:2px;font:500 13.5px Montserrat,sans-serif;color:#6E5428">{{ c.p }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
+<sc-for list="{{ cart }}" as="c" hint-placeholder-count="1"><div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:#FBE9ED;border:1.5px solid #C995A0;box-shadow:0 4px 14px rgba(140,95,105,.15)"><span style="width:10px;height:10px;border-radius:5px;background:#C8A15D"></span><div style="flex:1"><div style="font:600 16px Montserrat,sans-serif">{{ c.n }}</div><div style="margin-top:2px;font:500 13.5px Montserrat,sans-serif;color:#6E5428">{{ c.p }}</div></div><button onClick="{{ c.remove }}" aria-label="Quitar" style="width:40px;height:40px;border-radius:20px;border:0;background:#F1E1E3;color:#292827;font-size:16px;cursor:pointer">×</button></div></sc-for>
 </div>
 </sc-if>
 <sc-if value="{{ noItems }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 20px;border-radius:20px;border:1.5px dashed #DDB5BD;font-size:14.5px;color:#6E6964">Aún no has elegido servicios. Agrégalos abajo.</div></sc-if>
@@ -394,7 +394,7 @@ class Component extends DCLogic {
       tStart: e => { this._tx = e.touches[0].clientX; }, tEnd: e => { const dx = e.changedTouches[0].clientX - (this._tx ?? 0); if (Math.abs(dx) > 40) this.setState(x => ({ rIdx: (x.rIdx + (dx < 0 ? 1 : -1) + n) % n })); }, sedeGap: mob ? '10px' : 'clamp(14px,1.6vw,22px)', colGap: mob ? '10px' : 'clamp(12px,1.4vw,18px)', secPadT: mob ? '28px' : 'clamp(64px,7vw,104px)',
       heroOverlay: mob ? 'linear-gradient(180deg,rgba(20,10,15,.74) 0%,rgba(20,10,15,.4) 16%,rgba(20,10,15,0) 32%,rgba(20,10,15,0) 56%,rgba(20,10,15,.86) 78%,rgba(20,10,15,.94) 100%)' : this.ovl(),
       hMidDir: mob ? 'column' : 'row', hMidAlign: mob ? 'flex-start' : 'flex-end', hMidPad: mob ? '14px clamp(20px,5vw,72px) 0' : 'clamp(40px, 6vw, 96px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(28px, 5vw, 72px)',
-      h1Fs: mob ? '27px' : 'clamp(30px, 4.2vw, 60px)', hMidWrap: vw < 1100 ? 'wrap' : 'nowrap', h1BoxW: mob ? '100%' : (vw < 1100 ? '720px' : 'min(720px, 62%)'), h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
+      h1Fs: mob ? '25px' : 'clamp(34px, 4.6vw, 66px)', h1SubFs: mob ? '.66em' : '.5em', h1Flex: mob || vw < 1100 ? '0 0 auto' : '1 1 0', hMidWrap: vw < 1100 ? 'wrap' : 'nowrap', h1BoxW: mob ? '100%' : (vw < 1100 ? '720px' : 'none'), h1Lh: mob ? '1.05' : '.98', h1M: mob ? '0 0 10px' : 'clamp(14px,1.6vw,20px) 0 clamp(16px,1.8vw,22px)', h1W: 'none',
       subFs: mob ? '15px' : 'clamp(16px,1.5vw,20px)', subW: mob ? 'none' : '34ch', heroSub: 'Manicure y pedicure', subColor: mob ? '#FBEFF1' : '#EAC9CF', heroBtnsDisp: mob ? 'none' : 'flex',
       bandPad: mob ? '12px clamp(20px,5vw,72px) 14px' : 'clamp(16px, 2.2vw, 26px) ' + 'max(clamp(20px, 5vw, 72px), calc((100% - 1760px) / 2))' + ' clamp(22px, 3vw, 40px)',
       bandLblFont: mob ? '500 14px Montserrat,sans-serif' : '600 12px Montserrat,sans-serif', bandLblLs: mob ? '0' : '.18em', bandLblTt: mob ? 'none' : 'uppercase', bandLblMb: mob ? '10px' : 'clamp(10px,1.2vw,14px)', bandLblTxt: mob ? 'Elige tu sede para agendar' : 'Elige tu sede',
