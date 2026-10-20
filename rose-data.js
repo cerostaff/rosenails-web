@@ -1,15 +1,15 @@
 // Datos compartidos de Rosé Nails + helpers de reserva y motion.
-// Números de WhatsApp: PLACEHOLDER — reemplazar por los reales de cada sede.
+// Números de WhatsApp de cada sede.
 window.RoseData = {
   horario: '8:00 am a 7:00 pm',
   sedes: [
-    { id: 'jardines', name: 'Jardines', zona: 'Envigado', dir: 'Calle 25B Sur #45-75, Envigado', wa: '573000000002' },
-    { id: 'laureles', name: 'Laureles', zona: 'Laureles', dir: 'Cra. 78 #35-78', wa: '573000000003' },
-    { id: 'mesa', name: 'Mesa', zona: 'Envigado · Zona 9', dir: 'Cl. 37A Sur #34-13, Zona 9', wa: '573000000004' },
-    { id: 'poblado', name: 'Poblado', zona: 'Mall Piazza Bella', dir: 'Cra. 29D #6A-05, local 107', wa: '573000000005' },
-    { id: 'sabaneta', name: 'Sabaneta', zona: 'Sabaneta', dir: 'Cra. 48 #73 Sur 18', wa: '573000000006' }
+    { id: 'jardines', name: 'Jardines', zona: 'Envigado', dir: 'Calle 25B Sur #45-75, Envigado', wa: '573045823082' },
+    { id: 'laureles', name: 'Laureles', zona: 'Laureles', dir: 'Cra. 78 #35-78', wa: '573013296766' },
+    { id: 'mesa', name: 'Mesa', zona: 'Envigado · Zona 9', dir: 'Cl. 37A Sur #34-13, Zona 9', wa: '573008102321' },
+    { id: 'poblado', name: 'Poblado', zona: 'Mall Piazza Bella', dir: 'Cra. 29D #6A-05, local 107', wa: '573015725858' },
+    { id: 'sabaneta', name: 'Sabaneta', zona: 'Sabaneta', dir: 'Cra. 48 #73 Sur 18', wa: '573002214111' }
   ],
-  casa: { id: 'casa', name: 'Rosé en Casa', zona: 'A domicilio · zona Poblado', dir: 'Vamos a tu casa', horario: 'Con cita previa', wa: '573000000007' },
+  casa: { id: 'casa', name: 'Rosé en Casa', zona: 'A domicilio · zona Poblado', dir: 'Vamos a tu casa', horario: 'Con cita previa', wa: '573045830353' },
   categorias: [
     { n: 'Tradicional', d: 'Esmalte clásico, limpieza y forma.', items: [{ n: 'Manicure tradicional', t: '45 min' }, { n: 'Pedicure tradicional', t: '60 min' }, { n: 'Mani + pedi clásico', t: '1 h 45 min' }] },
     { n: 'Semipermanente', d: 'Brillo intacto por semanas.', items: [{ n: 'Manicure semipermanente', t: '60 min' }, { n: 'Pedicure semipermanente', t: '75 min' }, { n: 'Combo semipermanente + pedi clásico', t: '2 h' }] },
